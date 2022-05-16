@@ -1,12 +1,12 @@
 modLoader="javafml"
 loaderVersion="[40,)"
-license="All rights reserved"
+license="MIT"
 [[mods]]
 modId="weirdworld"
 version="${file.jarVersion}"
 displayName="Weird World"
 logoFile="weirdworld.png"
-credits="Just me for now"
+credits="Reetam, Glitchfiend (Terrablender)"
 authors="reetling"
 description='''
 A mod that adds fantasy biome variants.
