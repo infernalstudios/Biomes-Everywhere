@@ -1,17 +1,16 @@
 package com.reetling.weirdworld.registry;
 
+import com.reetling.weirdworld.WeirdWorld;
 import com.reetling.weirdworld.biomes.AllBiomes;
 import com.reetling.weirdworld.biomes.BiomeDefinitions;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class WeirdWorldBiomes {
 
-    public static void registerBiomes (RegistryEvent.Register<Biome> event) {
-        IForgeRegistry<Biome> registry = event.getRegistry();
-        registry.register(BiomeDefinitions.honeycombForest().setRegistryName(AllBiomes.HONEYCOMB_FOREST.getRegistryName()));
-    }
+    public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, WeirdWorld.MODID);
+
+    public static final RegistryObject<Biome> HONEYCOMB_FOREST = BIOMES.register("honeycomb_forest", BiomeDefinitions::honeycombForest);
 }
