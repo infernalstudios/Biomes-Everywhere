@@ -45,7 +45,7 @@ public class BiomeDefinitions {
         BiomeDefaultFeatures.commonSpawns(mobspawnsettings$builder);
         mobspawnsettings$builder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.BEE, 1, 1, 1));
 
-        biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WeirdWorldPlacedFeatures.PLACED_TREE_ASPEN);
+        biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WeirdWorldPlacedFeatures.PLACED_TREE_ASPEN.getHolder().get());
 
         return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.FOREST, 0.6F, 0.6F, mobspawnsettings$builder, biomegenerationsettings$builder, NORMAL_MUSIC);
     }

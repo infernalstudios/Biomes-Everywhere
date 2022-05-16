@@ -2,7 +2,6 @@
 package com.reetling.weirdworld.world;
 
 import com.mojang.datafixers.util.Pair;
-import com.reetling.weirdworld.biomes.AllBiomes;
 import com.reetling.weirdworld.registry.WeirdWorldBiomes;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -24,7 +23,7 @@ public class WeirdWorldRegion extends Region {
     @Override
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
         this.addModifiedVanillaOverworldBiomes(mapper, builder -> {
-            builder.replaceBiome(Biomes.BIRCH_FOREST, AllBiomes.HONEYCOMB_FOREST);
+            builder.replaceBiome(Biomes.BIRCH_FOREST, WeirdWorldBiomes.HONEYCOMB_FOREST_KEY);
         });
     }
 }

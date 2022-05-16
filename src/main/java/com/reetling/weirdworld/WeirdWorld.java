@@ -3,6 +3,7 @@ package com.reetling.weirdworld;
 import com.mojang.logging.LogUtils;
 import com.reetling.weirdworld.generation.FeaturesToBiomes;
 import com.reetling.weirdworld.registry.WeirdWorldBiomes;
+import com.reetling.weirdworld.registry.WeirdWorldConfiguredFeatures;
 import com.reetling.weirdworld.registry.WeirdWorldPlacedFeatures;
 import com.reetling.weirdworld.world.WeirdWorldRegion;
 import com.reetling.weirdworld.world.WeirdWorldSurfaces;
@@ -37,13 +38,14 @@ public class WeirdWorld {
         forgeBus.register(new FeaturesToBiomes());
 
         WeirdWorldBiomes.BIOMES.register(bus);
+        WeirdWorldConfiguredFeatures.CONFIGURED_FEATURES.register(bus);
+        WeirdWorldPlacedFeatures.PLACED_FEATURES.register(bus);
     }
 
     public void clientSetup(FMLClientSetupEvent event) {
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {
-        WeirdWorldPlacedFeatures.registerPlacedFeatures();
         event.enqueueWork(() -> {
             Regions.register(new WeirdWorldRegion(new ResourceLocation(MODID, "overworld"), 2));
 
