@@ -5,6 +5,7 @@ import com.reetling.weirdworld.generation.FeaturesToBiomes;
 import com.reetling.weirdworld.registry.WeirdWorldBiomes;
 import com.reetling.weirdworld.registry.WeirdWorldConfiguredFeatures;
 import com.reetling.weirdworld.registry.WeirdWorldPlacedFeatures;
+import com.reetling.weirdworld.registry.WeirdWorldTreePlacers;
 import com.reetling.weirdworld.world.WeirdWorldRegion;
 import com.reetling.weirdworld.world.WeirdWorldSurfaces;
 import net.minecraft.data.DataGenerator;
@@ -39,6 +40,7 @@ public class WeirdWorld {
 
         WeirdWorldBiomes.BIOMES.register(bus);
         WeirdWorldConfiguredFeatures.CONFIGURED_FEATURES.register(bus);
+        WeirdWorldTreePlacers.FOLIAGE_PLACERS.register(bus);
         WeirdWorldPlacedFeatures.PLACED_FEATURES.register(bus);
     }
 
