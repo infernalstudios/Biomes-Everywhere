@@ -18,6 +18,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.treedecorators.BeehiveDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -36,6 +37,7 @@ public class WeirdWorldConfiguredFeatures {
                             BlockStateProvider.simple(Blocks.HONEYCOMB_BLOCK),
                             new BrushFoliagePlacer(ConstantInt.of(1), ConstantInt.of(2), UniformInt.of(7, 9)),
                             new TwoLayersFeatureSize(1, 0, 1))
+                            .decorators(List.of(new BeehiveDecorator(0.33F)))
                             .ignoreVines().build()));
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> CONFIGURED_PATCH_DANDELION = CONFIGURED_FEATURES.register("patch_dandelion",
