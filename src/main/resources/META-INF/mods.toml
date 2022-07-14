@@ -2,31 +2,31 @@ modLoader="javafml"
 loaderVersion="[40,)"
 license="MIT"
 [[mods]]
-modId="weirdworld"
+modId="biomeseverywhere"
 version="${file.jarVersion}"
 displayName="Weird World"
-logoFile="weirdworld.png"
+logoFile="biomeseverywhere.png"
 credits="Reetam, Glitchfiend (Terrablender)"
 authors="reetling"
 description='''
 A mod that adds fantasy biome variants.
 '''
 
-[[dependencies.weirdworld]]
+[[dependencies.biomeseverywhere]]
     modId="forge"
     mandatory=true
     versionRange="[40,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.weirdworld]]
+[[dependencies.biomeseverywhere]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.18.2,1.19)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.weirdworld]]
+[[dependencies.biomeseverywhere]]
     modId="terrablender"
     mandatory=true
     versionRange="[1.1.0.99,)"

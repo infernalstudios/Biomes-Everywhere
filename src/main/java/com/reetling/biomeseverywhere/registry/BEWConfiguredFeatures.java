@@ -1,21 +1,16 @@
-package com.reetling.weirdworld.registry;
+package com.reetling.biomeseverywhere.registry;
 
-import com.reetling.weirdworld.WeirdWorld;
-import com.reetling.weirdworld.world.placers.BrushFoliagePlacer;
+import com.reetling.biomeseverywhere.BiomesEverywhere;
+import com.reetling.biomeseverywhere.world.placers.BrushFoliagePlacer;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.FeatureUtils;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.ConstantInt;
-import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.BeehiveDecorator;
@@ -25,9 +20,9 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
 
-public class WeirdWorldConfiguredFeatures {
+public class BEWConfiguredFeatures {
 
-    public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, WeirdWorld.MODID);
+    public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, BiomesEverywhere.MODID);
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> CONFIGURED_TREE_ASPEN = CONFIGURED_FEATURES.register("tree_aspen",
             () -> new ConfiguredFeature<>(Feature.TREE,

@@ -1,4 +1,4 @@
-package com.reetling.weirdworld;
+package com.reetling.biomeseverywhere;
 
 import net.minecraft.core.Direction;
 

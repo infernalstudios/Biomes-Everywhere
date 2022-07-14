@@ -1,13 +1,13 @@
-package com.reetling.weirdworld;
+package com.reetling.biomeseverywhere;
 
 import com.mojang.logging.LogUtils;
-import com.reetling.weirdworld.generation.FeaturesToBiomes;
-import com.reetling.weirdworld.registry.WeirdWorldBiomes;
-import com.reetling.weirdworld.registry.WeirdWorldConfiguredFeatures;
-import com.reetling.weirdworld.registry.WeirdWorldPlacedFeatures;
-import com.reetling.weirdworld.registry.WeirdWorldTreePlacers;
-import com.reetling.weirdworld.world.WeirdWorldRegion;
-import com.reetling.weirdworld.world.WeirdWorldSurfaces;
+import com.reetling.biomeseverywhere.generation.FeaturesToBiomes;
+import com.reetling.biomeseverywhere.registry.BEWBiomes;
+import com.reetling.biomeseverywhere.registry.BEWConfiguredFeatures;
+import com.reetling.biomeseverywhere.registry.BEWPlacedFeatures;
+import com.reetling.biomeseverywhere.registry.BEWTreePlacers;
+import com.reetling.biomeseverywhere.world.BEWRegion;
+import com.reetling.biomeseverywhere.world.BEWSurfaces;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -22,13 +22,13 @@ import org.slf4j.Logger;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
-@Mod(WeirdWorld.MODID)
-public class WeirdWorld {
+@Mod(BiomesEverywhere.MODID)
+public class BiomesEverywhere {
 
     private static final Logger LOGGER = LogUtils.getLogger();
-    public static final String MODID = "weirdworld";
+    public static final String MODID = "biomeseverywhere";
 
-    public WeirdWorld() {
+    public BiomesEverywhere() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         IEventBus forgeBus = MinecraftForge.EVENT_BUS;
 
@@ -38,10 +38,10 @@ public class WeirdWorld {
 
         forgeBus.register(new FeaturesToBiomes());
 
-        WeirdWorldBiomes.BIOMES.register(bus);
-        WeirdWorldConfiguredFeatures.CONFIGURED_FEATURES.register(bus);
-        WeirdWorldTreePlacers.FOLIAGE_PLACERS.register(bus);
-        WeirdWorldPlacedFeatures.PLACED_FEATURES.register(bus);
+        BEWBiomes.BIOMES.register(bus);
+        BEWConfiguredFeatures.CONFIGURED_FEATURES.register(bus);
+        BEWTreePlacers.FOLIAGE_PLACERS.register(bus);
+        BEWPlacedFeatures.PLACED_FEATURES.register(bus);
     }
 
     public void clientSetup(FMLClientSetupEvent event) {
@@ -49,9 +49,9 @@ public class WeirdWorld {
 
     public void commonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            Regions.register(new WeirdWorldRegion(new ResourceLocation(MODID, "overworld"), 2));
+            Regions.register(new BEWRegion(new ResourceLocation(MODID, "overworld"), 2));
 
-            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MODID, WeirdWorldSurfaces.makeRules());
+            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MODID, BEWSurfaces.makeRules());
         });
     }
 

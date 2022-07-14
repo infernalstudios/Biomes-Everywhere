@@ -41,7 +41,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', "${project.modid}"
 
             mods {
-                weirdworld {
+                biomeseverywhere {
                     source sourceSets.main
                 }
             }
@@ -57,7 +57,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', "${project.modid}"
 
             mods {
-                weirdworld {
+                biomeseverywhere {
                     source sourceSets.main
                 }
             }
@@ -73,7 +73,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', "${project.modid}"
 
             mods {
-                weirdworld {
+                biomeseverywhere {
                     source sourceSets.main
                 }
             }
@@ -90,7 +90,7 @@ minecraft {
             args '--mod', "${project.modid}", '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                weirdworld {
+                biomeseverywhere {
                     source sourceSets.main
                 }
             }

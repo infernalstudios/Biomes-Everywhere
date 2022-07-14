@@ -1,6 +1,6 @@
-package com.reetling.weirdworld.biomes;
+package com.reetling.biomeseverywhere.biomes;
 
-import com.reetling.weirdworld.registry.WeirdWorldPlacedFeatures;
+import com.reetling.biomeseverywhere.registry.BEWPlacedFeatures;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.sounds.Music;
 import net.minecraft.util.Mth;
@@ -8,7 +8,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import javax.annotation.Nullable;
 
@@ -46,9 +45,9 @@ public class BiomeDefinitions {
         BiomeDefaultFeatures.commonSpawns(mobspawnsettings$builder);
         mobspawnsettings$builder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.BEE, 1, 1, 1));
 
-        biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WeirdWorldPlacedFeatures.PLACED_TREE_ASPEN.getHolder().get());
-        biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WeirdWorldPlacedFeatures.PLACED_PATCH_DANDELION.getHolder().get());
-        biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WeirdWorldPlacedFeatures.PLACED_PATCH_SUNFLOWER.getHolder().get());
+        biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BEWPlacedFeatures.PLACED_TREE_ASPEN.getHolder().get());
+        biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BEWPlacedFeatures.PLACED_PATCH_DANDELION.getHolder().get());
+        biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BEWPlacedFeatures.PLACED_PATCH_SUNFLOWER.getHolder().get());
 
         return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.FOREST, 0.6F, 0.6F, mobspawnsettings$builder, biomegenerationsettings$builder, NORMAL_MUSIC);
     }

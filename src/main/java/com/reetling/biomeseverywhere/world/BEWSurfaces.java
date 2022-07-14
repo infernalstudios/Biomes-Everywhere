@@ -1,10 +1,10 @@
-package com.reetling.weirdworld.world;
+package com.reetling.biomeseverywhere.world;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 
-public class WeirdWorldSurfaces {
+public class BEWSurfaces {
     private static final SurfaceRules.RuleSource DIRT = makeStateRule(Blocks.DIRT);
     private static final SurfaceRules.RuleSource GRASS_BLOCK = makeStateRule(Blocks.GRASS_BLOCK);
 

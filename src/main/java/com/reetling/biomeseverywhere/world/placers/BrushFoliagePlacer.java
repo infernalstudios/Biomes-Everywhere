@@ -1,9 +1,9 @@
-package com.reetling.weirdworld.world.placers;
+package com.reetling.biomeseverywhere.world.placers;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.reetling.weirdworld.GenerationUtils;
-import com.reetling.weirdworld.registry.WeirdWorldTreePlacers;
+import com.reetling.biomeseverywhere.GenerationUtils;
+import com.reetling.biomeseverywhere.registry.BEWTreePlacers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.valueproviders.IntProvider;
@@ -32,7 +32,7 @@ public class BrushFoliagePlacer extends FoliagePlacer {
 
     @Override
     protected FoliagePlacerType<?> type() {
-        return WeirdWorldTreePlacers.BRUSH_FOLIAGE_PLACER.get();
+        return BEWTreePlacers.BRUSH_FOLIAGE_PLACER.get();
     }
 
     @Override
