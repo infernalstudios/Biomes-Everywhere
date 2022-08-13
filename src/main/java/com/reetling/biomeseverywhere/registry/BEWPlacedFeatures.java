@@ -20,6 +20,10 @@ public class BEWPlacedFeatures {
             () -> new PlacedFeature(BEWConfiguredFeatures.CONFIGURED_TREE_ASPEN.getHolder().get(),
                     List.of(CountOnEveryLayerPlacement.of(6), BiomeFilter.biome(), ConfiguredFilters.needsSoil())));
 
+    public static final RegistryObject<PlacedFeature> PLACED_TREE_SEQUOIA = PLACED_FEATURES.register("placed_tree_sequoia",
+            () -> new PlacedFeature(BEWConfiguredFeatures.CONFIGURED_TREE_SEQUOIA.getHolder().get(),
+                    List.of(CountOnEveryLayerPlacement.of(3), BiomeFilter.biome(), ConfiguredFilters.needsSoil())));
+
     public static final RegistryObject<PlacedFeature> PLACED_PATCH_DANDELION = PLACED_FEATURES.register("placed_patch_dandelion",
             () -> new PlacedFeature(BEWConfiguredFeatures.CONFIGURED_PATCH_DANDELION.getHolder().get(),
                     List.of(CountPlacement.of(96), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome())));

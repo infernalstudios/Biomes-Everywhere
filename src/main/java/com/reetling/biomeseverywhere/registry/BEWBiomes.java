@@ -15,7 +15,9 @@ public class BEWBiomes {
     public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, BiomesEverywhere.MODID);
 
     public static final RegistryObject<Biome> HONEYCOMB_FOREST = BIOMES.register("honeycomb_forest", BiomeDefinitions::honeycombForest);
+    public static final RegistryObject<Biome> ANCIENT_WOODS = BIOMES.register("ancient_woods", BiomeDefinitions::ancientWoods);
     public static final ResourceKey<Biome> HONEYCOMB_FOREST_KEY = register("honeycomb_forest");
+    public static final ResourceKey<Biome> ANCIENT_WOODS_KEY = register("ancient_woods");
 
     private static ResourceKey<Biome> register(String name) {
         return ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BiomesEverywhere.MODID, name));

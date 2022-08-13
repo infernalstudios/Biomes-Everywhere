@@ -8,6 +8,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import javax.annotation.Nullable;
 
@@ -34,22 +35,38 @@ public class BiomeDefinitions {
     }
 
     public static Biome honeycombForest() {
-        BiomeGenerationSettings.Builder biomegenerationsettings$builder = new BiomeGenerationSettings.Builder();
-        globalOverworldGeneration(biomegenerationsettings$builder);
+        BiomeGenerationSettings.Builder builder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(builder);
 
-        BiomeDefaultFeatures.addDefaultGrass(biomegenerationsettings$builder);
-        BiomeDefaultFeatures.addDefaultMushrooms(biomegenerationsettings$builder);
-        BiomeDefaultFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
-        MobSpawnSettings.Builder mobspawnsettings$builder = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.farmAnimals(mobspawnsettings$builder);
-        BiomeDefaultFeatures.commonSpawns(mobspawnsettings$builder);
-        mobspawnsettings$builder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.BEE, 1, 1, 1));
+        BiomeDefaultFeatures.addDefaultGrass(builder);
+        BiomeDefaultFeatures.addDefaultMushrooms(builder);
+        BiomeDefaultFeatures.addDefaultExtraVegetation(builder);
+        MobSpawnSettings.Builder mobs = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.farmAnimals(mobs);
+        BiomeDefaultFeatures.commonSpawns(mobs);
+        mobs.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.BEE, 1, 1, 1));
 
-        biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BEWPlacedFeatures.PLACED_TREE_ASPEN.getHolder().get());
-        biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BEWPlacedFeatures.PLACED_PATCH_DANDELION.getHolder().get());
-        biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BEWPlacedFeatures.PLACED_PATCH_SUNFLOWER.getHolder().get());
+        builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BEWPlacedFeatures.PLACED_TREE_ASPEN.getHolder().get());
+        builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BEWPlacedFeatures.PLACED_PATCH_DANDELION.getHolder().get());
+        builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BEWPlacedFeatures.PLACED_PATCH_SUNFLOWER.getHolder().get());
 
-        return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.FOREST, 0.6F, 0.6F, mobspawnsettings$builder, biomegenerationsettings$builder, NORMAL_MUSIC);
+        return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.FOREST, 0.6F, 0.6F, mobs, builder, NORMAL_MUSIC);
+    }
+
+    public static Biome ancientWoods() {
+        BiomeGenerationSettings.Builder builder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(builder);
+
+        BiomeDefaultFeatures.addDefaultGrass(builder);
+        BiomeDefaultFeatures.addDefaultMushrooms(builder);
+        BiomeDefaultFeatures.addDefaultExtraVegetation(builder);
+        MobSpawnSettings.Builder mobs = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.farmAnimals(mobs);
+        BiomeDefaultFeatures.commonSpawns(mobs);
+
+        builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BEWPlacedFeatures.PLACED_TREE_SEQUOIA.getHolder().get());
+
+        return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.TAIGA, 0.3F, 0.8F, mobs, builder, NORMAL_MUSIC);
     }
 
     private static Biome biome(Biome.Precipitation precipitation, Biome.BiomeCategory category, float temperature, float downfall, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, @Nullable Music music) {
