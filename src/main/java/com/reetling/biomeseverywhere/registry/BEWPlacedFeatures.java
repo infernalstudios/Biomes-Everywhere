@@ -3,6 +3,7 @@ package com.reetling.biomeseverywhere.registry;
 import com.reetling.biomeseverywhere.BiomesEverywhere;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
+import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -22,7 +23,7 @@ public class BEWPlacedFeatures {
 
     public static final RegistryObject<PlacedFeature> PLACED_TREE_SEQUOIA = PLACED_FEATURES.register("placed_tree_sequoia",
             () -> new PlacedFeature(BEWConfiguredFeatures.CONFIGURED_TREE_SEQUOIA.getHolder().get(),
-                    List.of(CountOnEveryLayerPlacement.of(3), BiomeFilter.biome(), ConfiguredFilters.needsSoil())));
+                    List.of(CountOnEveryLayerPlacement.of(2), BiomeFilter.biome(), ConfiguredFilters.needsSoil())));
 
     public static final RegistryObject<PlacedFeature> PLACED_PATCH_DANDELION = PLACED_FEATURES.register("placed_patch_dandelion",
             () -> new PlacedFeature(BEWConfiguredFeatures.CONFIGURED_PATCH_DANDELION.getHolder().get(),

@@ -48,7 +48,7 @@ public class BrushFoliagePlacer extends FoliagePlacer {
             } if (i == j + k + 1 || (i >= 1 && i <= j)) {
                 this.placeLeavesRow(level, blockSetter, random, config, attachment.pos(), 1, l, attachment.doubleTrunk());
                 if (i == j) {
-                    for (Direction direction : GenerationUtils.Direction$Planar) {
+                    for (Direction direction : GenerationUtils.Planar) {
                         if (random.nextInt(3) == 0) {
                             this.placeLeavesRow(level, blockSetter, random, config, attachment.pos().relative(direction).relative(direction.getClockWise()), 0, l, attachment.doubleTrunk());
                         }
@@ -56,7 +56,7 @@ public class BrushFoliagePlacer extends FoliagePlacer {
                 }
             } if (i > j && i <= j + k) {
 
-                for (Direction direction : GenerationUtils.Direction$Planar) { // randomly replace some outer blocks with air
+                for (Direction direction : GenerationUtils.Planar) { // randomly replace some outer blocks with air
                     this.placeLeavesRow(level, blockSetter, random, config, attachment.pos().relative(direction), 1, l, attachment.doubleTrunk());
 
                     this.placeLeavesRow(level, blockSetter, random, config, attachment.pos().relative(direction, 2).relative(random.nextBoolean() ? direction.getClockWise() : direction.getCounterClockWise()), 0, l, attachment.doubleTrunk());

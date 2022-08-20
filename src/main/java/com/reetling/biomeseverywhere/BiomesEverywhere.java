@@ -41,6 +41,7 @@ public class BiomesEverywhere {
         BEWBiomes.BIOMES.register(bus);
         BEWConfiguredFeatures.CONFIGURED_FEATURES.register(bus);
         BEWTreePlacers.FOLIAGE_PLACERS.register(bus);
+        BEWTreePlacers.TRUNK_PLACERS.register(bus);
         BEWPlacedFeatures.PLACED_FEATURES.register(bus);
     }
 

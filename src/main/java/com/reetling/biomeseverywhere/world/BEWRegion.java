@@ -9,11 +9,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.Climate;
-import terrablender.api.ParameterUtils;
 import terrablender.api.Region;
 import terrablender.api.RegionType;
 
-import java.util.List;
 import java.util.function.Consumer;
 
 
@@ -28,6 +26,7 @@ public class BEWRegion extends Region {
         this.addModifiedVanillaOverworldBiomes(mapper, builder -> {
             builder.replaceBiome(Biomes.BIRCH_FOREST, BEWBiomes.HONEYCOMB_FOREST_KEY);
             builder.replaceBiome(Biomes.OLD_GROWTH_PINE_TAIGA, BEWBiomes.ANCIENT_WOODS_KEY);
+            builder.replaceBiome(Biomes.OLD_GROWTH_SPRUCE_TAIGA, BEWBiomes.ANCIENT_WOODS_KEY);
 
         });
 //        List<Climate.ParameterPoint> honeycombForestPoints = new ParameterUtils.ParameterPointListBuilder()

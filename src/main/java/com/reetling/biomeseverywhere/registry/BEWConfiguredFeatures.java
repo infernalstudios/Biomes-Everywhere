@@ -2,11 +2,11 @@ package com.reetling.biomeseverywhere.registry;
 
 import com.reetling.biomeseverywhere.BiomesEverywhere;
 import com.reetling.biomeseverywhere.world.placers.BrushFoliagePlacer;
+import com.reetling.biomeseverywhere.world.placers.ThickTrunkPlacer;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -17,7 +17,6 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.MegaPineFoliage
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.AlterGroundDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.BeehiveDecorator;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.GiantTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -42,9 +41,9 @@ public class BEWConfiguredFeatures {
     public static final RegistryObject<ConfiguredFeature<?, ?>> CONFIGURED_TREE_SEQUOIA = CONFIGURED_FEATURES.register("tree_sequoia",
             () -> new ConfiguredFeature<>(Feature.TREE,
                     new TreeConfiguration.TreeConfigurationBuilder(
-                            BlockStateProvider.simple(Blocks.SPRUCE_LOG),
-                            new GiantTrunkPlacer(16, 2, 12),
-                            BlockStateProvider.simple(Blocks.SPRUCE_LEAVES),
+                            BlockStateProvider.simple(Blocks.BLACK_TERRACOTTA),
+                            new ThickTrunkPlacer(32, 2, 8),
+                            BlockStateProvider.simple(Blocks.STRUCTURE_VOID),
                             new MegaPineFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), UniformInt.of(16, 20)),
                             new TwoLayersFeatureSize(1, 1, 2))
                             .decorators(List.of(new AlterGroundDecorator(BlockStateProvider.simple(Blocks.PODZOL))))
