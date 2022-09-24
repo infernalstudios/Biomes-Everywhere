@@ -48,7 +48,9 @@ public class BiomeDefinitions {
         mobs.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.BEE, 1, 1, 1));
 
         builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BEWPlacedFeatures.PLACED_TREE_ASPEN.getHolder().get());
+        builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BEWPlacedFeatures.PLACED_SMALL_TREE_ASPEN.getHolder().get());
         builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BEWPlacedFeatures.PLACED_PATCH_DANDELION.getHolder().get());
+        builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BEWPlacedFeatures.PLACED_PATCH_TALL_GRASS.getHolder().get());
         builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BEWPlacedFeatures.PLACED_PATCH_SUNFLOWER.getHolder().get());
 
         return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.FOREST, 0.6F, 0.6F, mobs, builder, NORMAL_MUSIC);

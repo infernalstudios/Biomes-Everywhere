@@ -19,7 +19,11 @@ public class BEWPlacedFeatures {
 
     public static final RegistryObject<PlacedFeature> PLACED_TREE_ASPEN = PLACED_FEATURES.register("placed_tree_aspen",
             () -> new PlacedFeature(BEWConfiguredFeatures.CONFIGURED_TREE_ASPEN.getHolder().get(),
-                    List.of(CountOnEveryLayerPlacement.of(6), BiomeFilter.biome(), ConfiguredFilters.needsSoil())));
+                    List.of(CountOnEveryLayerPlacement.of(8), BiomeFilter.biome(), ConfiguredFilters.needsSoil())));
+
+    public static final RegistryObject<PlacedFeature> PLACED_SMALL_TREE_ASPEN = PLACED_FEATURES.register("placed_small_tree_aspen",
+            () -> new PlacedFeature(BEWConfiguredFeatures.CONFIGURED_SMALL_TREE_ASPEN.getHolder().get(),
+                    List.of(CountOnEveryLayerPlacement.of(2), BiomeFilter.biome(), ConfiguredFilters.needsSoil())));
 
     public static final RegistryObject<PlacedFeature> PLACED_TREE_SEQUOIA = PLACED_FEATURES.register("placed_tree_sequoia",
             () -> new PlacedFeature(BEWConfiguredFeatures.CONFIGURED_TREE_SEQUOIA.getHolder().get(),
@@ -27,7 +31,11 @@ public class BEWPlacedFeatures {
 
     public static final RegistryObject<PlacedFeature> PLACED_PATCH_DANDELION = PLACED_FEATURES.register("placed_patch_dandelion",
             () -> new PlacedFeature(BEWConfiguredFeatures.CONFIGURED_PATCH_DANDELION.getHolder().get(),
-                    List.of(CountPlacement.of(96), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome())));
+                    List.of(CountPlacement.of(256), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome())));
+
+    public static final RegistryObject<PlacedFeature> PLACED_PATCH_TALL_GRASS = PLACED_FEATURES.register("placed_patch_tall_grass",
+            () -> new PlacedFeature(BEWConfiguredFeatures.CONFIGURED_PATCH_TALL_GRASS.getHolder().get(),
+                    List.of(CountPlacement.of(128), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome())));
 
     public static final RegistryObject<PlacedFeature> PLACED_PATCH_SUNFLOWER = PLACED_FEATURES.register("placed_patch_sunflower",
             () -> new PlacedFeature(BEWConfiguredFeatures.CONFIGURED_PATCH_SUNFLOWER.getHolder().get(),

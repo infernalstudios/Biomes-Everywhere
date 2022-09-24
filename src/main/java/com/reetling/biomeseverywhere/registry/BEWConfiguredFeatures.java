@@ -2,6 +2,7 @@ package com.reetling.biomeseverywhere.registry;
 
 import com.reetling.biomeseverywhere.BiomesEverywhere;
 import com.reetling.biomeseverywhere.world.placers.BrushFoliagePlacer;
+import com.reetling.biomeseverywhere.world.placers.GiantFoliagePlacer;
 import com.reetling.biomeseverywhere.world.placers.ThickTrunkPlacer;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.FeatureUtils;
@@ -31,7 +32,18 @@ public class BEWConfiguredFeatures {
             () -> new ConfiguredFeature<>(Feature.TREE,
                     new TreeConfiguration.TreeConfigurationBuilder(
                             BlockStateProvider.simple(Blocks.BIRCH_LOG),
-                            new StraightTrunkPlacer(8, 0, 2),
+                            new StraightTrunkPlacer(15, 0, 3),
+                            BlockStateProvider.simple(Blocks.HONEYCOMB_BLOCK),
+                            new BrushFoliagePlacer(ConstantInt.of(1), ConstantInt.of(2), UniformInt.of(7, 9)),
+                            new TwoLayersFeatureSize(1, 0, 1))
+                            .decorators(List.of(new BeehiveDecorator(0.15F)))
+                            .ignoreVines().build()));
+
+    public static final RegistryObject<ConfiguredFeature<?, ?>> CONFIGURED_SMALL_TREE_ASPEN = CONFIGURED_FEATURES.register("small_tree_aspen",
+            () -> new ConfiguredFeature<>(Feature.TREE,
+                    new TreeConfiguration.TreeConfigurationBuilder(
+                            BlockStateProvider.simple(Blocks.BIRCH_LOG),
+                            new StraightTrunkPlacer(6, 0, 2),
                             BlockStateProvider.simple(Blocks.HONEYCOMB_BLOCK),
                             new BrushFoliagePlacer(ConstantInt.of(1), ConstantInt.of(2), UniformInt.of(7, 9)),
                             new TwoLayersFeatureSize(1, 0, 1))
@@ -41,10 +53,10 @@ public class BEWConfiguredFeatures {
     public static final RegistryObject<ConfiguredFeature<?, ?>> CONFIGURED_TREE_SEQUOIA = CONFIGURED_FEATURES.register("tree_sequoia",
             () -> new ConfiguredFeature<>(Feature.TREE,
                     new TreeConfiguration.TreeConfigurationBuilder(
-                            BlockStateProvider.simple(Blocks.BLACK_TERRACOTTA),
+                            BlockStateProvider.simple(Blocks.DARK_OAK_LOG),
                             new ThickTrunkPlacer(32, 2, 8),
-                            BlockStateProvider.simple(Blocks.STRUCTURE_VOID),
-                            new MegaPineFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), UniformInt.of(16, 20)),
+                            BlockStateProvider.simple(Blocks.AIR),
+                            new MegaPineFoliagePlacer(ConstantInt.of(0), ConstantInt.of(8), UniformInt.of(16, 20)),
                             new TwoLayersFeatureSize(1, 1, 2))
                             .decorators(List.of(new AlterGroundDecorator(BlockStateProvider.simple(Blocks.PODZOL))))
                             .ignoreVines().build()));
@@ -54,6 +66,10 @@ public class BEWConfiguredFeatures {
                     FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.DANDELION)),
                                     List.of(Blocks.GRASS_BLOCK, Blocks.DIRT), 64)));
 
+    public static final RegistryObject<ConfiguredFeature<?, ?>> CONFIGURED_PATCH_TALL_GRASS = CONFIGURED_FEATURES.register("patch_tall_grass",
+            () -> new ConfiguredFeature<>(Feature.FLOWER,
+                    FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.TALL_GRASS)),
+                            List.of(Blocks.GRASS_BLOCK, Blocks.DIRT), 64)));
     public static final RegistryObject<ConfiguredFeature<?, ?>> CONFIGURED_PATCH_SUNFLOWER = CONFIGURED_FEATURES.register("patch_sunflower",
             () -> new ConfiguredFeature<>(Feature.FLOWER,
                     FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.SUNFLOWER)),

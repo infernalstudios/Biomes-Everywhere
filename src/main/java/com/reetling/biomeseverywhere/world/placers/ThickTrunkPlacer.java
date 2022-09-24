@@ -3,9 +3,6 @@ package com.reetling.biomeseverywhere.world.placers;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import static com.reetling.biomeseverywhere.GenerationUtils.Planar;
-import static com.reetling.biomeseverywhere.GenerationUtils.planar;
-
 import com.reetling.biomeseverywhere.registry.BEWTreePlacers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelSimulatedReader;
@@ -18,6 +15,8 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import java.util.List;
 import java.util.Random;
 import java.util.function.BiConsumer;
+
+import static com.reetling.biomeseverywhere.GenerationUtils.Planar;
 
 public class ThickTrunkPlacer extends TrunkPlacer {
 
@@ -39,8 +38,8 @@ public class ThickTrunkPlacer extends TrunkPlacer {
 
         int r = random.nextInt(Planar.length);
         for (int i = -2; i < 3 + random.nextInt(4); i++) {
-            placeWithRadius(level, blockSetter, random, pos.relative(Planar[r], 2).above(i).mutable(), config, 4);
-            placeWithRadius(level, blockSetter, random, pos.relative(Planar[r]).above(i + 1).mutable(), config, 4);
+            placeWithRadius(level, blockSetter, random, pos.relative(Planar[r]).above(i).mutable(), config, 2);
+            placeWithRadius(level, blockSetter, random, pos.above(i + 1).mutable(), config, 2);
         }
 
         for (int i = -2; i < 4; i++) {
@@ -53,16 +52,16 @@ public class ThickTrunkPlacer extends TrunkPlacer {
         int stalk = 0;
         for (int i = 0; i < freeTreeHeight; i++) {
             if (i < 0.4 * freeTreeHeight) {
-                placeWithRadius(level, blockSetter, random, pos.above(i).mutable(), config, 4);
+                placeWithRadius(level, blockSetter, random, pos.above(i).mutable(), config, 3);
             } else if (i < 0.75 * freeTreeHeight) {
                 if (!offset) {
                     int r2 = random.nextInt(Planar.length);
                     pos = pos.relative(Planar[r2]).relative(Planar[r2].getClockWise());
                     offset = true;
                 }
-                placeWithRadius(level, blockSetter, random, pos.above(i).mutable(), config, 3);
+                placeWithRadius(level, blockSetter, random, pos.above(i).mutable(), config, 2);
                 if (stalk < 6) {
-                    placeWithRadius(level, blockSetter, random, pos1.above(i).mutable(), config, 3);
+                    placeWithRadius(level, blockSetter, random, pos1.above(i).mutable(), config, 2);
                     stalk++;
                 }
             } else {
@@ -72,11 +71,11 @@ public class ThickTrunkPlacer extends TrunkPlacer {
                     pos = pos.relative(Planar[r3]).relative(Planar[r3].getClockWise());
                     offset = false;
                 }
-                placeWithRadius(level, blockSetter, random, pos.above(i).mutable(), config, 2);
+                placeWithRadius(level, blockSetter, random, pos.above(i).mutable(), config, 1);
                 if (stalk < 11) {
-                    placeWithRadius(level, blockSetter, random, pos1.above(i).mutable(), config, 2);
+                    placeWithRadius(level, blockSetter, random, pos1.above(i).mutable(), config, 1);
                     stalk++;
-                } else if (i == freeTreeHeight - 1) {
+                }/* else if (i == freeTreeHeight - 1) {
                     int r4 = random.nextInt(Planar.length);
                     for (int j = 0; j < 6; j++) {
                         placeLogIfFree(level, blockSetter, random, pos.above(i + j).mutable(), config);
@@ -84,7 +83,7 @@ public class ThickTrunkPlacer extends TrunkPlacer {
                         placeLogIfFree(level, blockSetter, random, pos.relative(Planar[r4]).above(i + j).mutable(), config);
                         placeLogIfFree(level, blockSetter, random, pos.relative(Planar[r4]).relative(Planar[r4].getClockWise()).above(i + j).mutable(), config);
                     }
-                }
+                }*/
             }
         }
         return ImmutableList.of(new FoliagePlacer.FoliageAttachment(pos.above(freeTreeHeight), 0, true));
